@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emile's Notes Website</title>
+    
+    <style>
+        #title {
+            text-align: center;
+            font-size: 400%;
+            font-weight: bolder;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            outline: 5px solid rgb(0, 0, 0) ;
+        }
+
+        #content {
+            margin: auto;
+            width: 90%;
+            height: auto;
+            min-height: 70vh;
+            border: 4px solid black;
+            display: flex;
+            justify-content: center;
+        }
+
+        #notes {
+            width: 100%;
+            min-height: 70vh;
+            font-size: x-large;
+            padding: 12px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded" , function() {
+            let notes = document.getElementById("notes");
+
+            notes.value = localStorage.getItem("notes");
+
+            notes.addEventListener("input" , function() {
+                localStorage.setItem("notes" , notes.value);
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h1 id="title">NOTES WEBSITE</h1>
+
+    <div id="content">
+        <textarea name="notes" id="notes" placeholder="start typing here"></textarea>
+    </div>
+</body>
+</html>
